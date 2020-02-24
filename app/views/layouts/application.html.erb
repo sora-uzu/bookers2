@@ -10,6 +10,19 @@
   </head>
 
   <body>
+   <header>
+   <h1>bookers</h1>
+   <% if user_signed_in? %>
+   <%= link_to "Home", user_path(current_user.id) %>
+   <p>Users</p>
+   <%= link_to "Books", books_path %>
+   <%= link_to "logout", destroy_user_session_path, method: :delete %>
+   <% else %>
+   <p>Home</p>
+   <p>About</p>
+   <p>sign up </p>
+   <p>log in</p>
+   <% end %>
     <%= yield %>
   </body>
 </html>
