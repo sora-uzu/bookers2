@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :books
   root to: 'books#top'
   root 'books#index'
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update, :index]
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
