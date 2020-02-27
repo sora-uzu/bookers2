@@ -5,15 +5,21 @@
       Introduction is too long (maximum is 50 characters)</p>
    <% end %>
 <div>
-      <label>Name</label>
-      <%= f.text_field :name, autofocus: true, placeholder:"Name"%>
-      <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
-  
-      <label>Introduction</label>
-      <%= f.text_area :introduction %>
+<table>
+      <tr>
+      <td>Name</td>
+      <td><%= f.text_field :name, autofocus: true, placeholder:"Name"%></td>
+      </tr>
+      <tr>
+      <td>Introduction</td>
+      <td><%= f.text_area :introduction %></td>
+      </tr>
+      <tr>
+      <td>ProfileImage</td>
+      <td><%= f.attachment_field :profile_image, placeholder: "Image", class: "user-edit-form" %></td>
+      </tr>
+</table>
 
-      <label>ProfileImage</label>
-      <%= f.attachment_field :profile_image, placeholder: "Image", class: "user-edit-form" %>
  </div>            
 
 <%= f.submit "Update User", class:"btn btn-lg btn-block btn-base-1 mt-20" %>

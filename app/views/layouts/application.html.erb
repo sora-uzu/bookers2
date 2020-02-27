@@ -13,59 +13,44 @@
    <header>
 
    <nav class="navbar navbar-default">
-	<div class="container-fluid">
+	  <div class="container-fluid">
 		<div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
-      <span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Bookers</a>
+      <span>Bookers</span>
       <div class="collapse navbar-collapse" id="navbarEexample1">
 			<ul class="nav navbar-nav">
    <% if user_signed_in? %>
    <li>
-   <span class="glyphicon glyphicon-home" aria-hidden="true">
-   <%= link_to "Home", user_path(current_user.id) %>
-   </span>
+   <%= link_to " Home", user_path(current_user.id),class: "glyphicon glyphicon-home" %>
    </li>
+
    <li>
-   <span class="glyphicon glyphicon-user" aria-hidden="true">
-   <%= link_to "Users", users_path %>
-   </span>
+   <%= link_to " Users", users_path, class:"glyphicon glyphicon-user" %>
    </li>
+
    <li>
-   <span class="glyphicon glyphicon-book" aria-hidden="true">
-   <%= link_to "Books", books_path %>
-   </span>
+   <%= link_to " Books", books_path,class:"glyphicon glyphicon-book" %>
    </li>
+
    <li>
-   <span class="glyphicon glyphicon-inbox" aria-hidden="true">
-   <%= link_to "logout", destroy_user_session_path, method: :delete %>
-   </span>
+   <%= link_to " logout", destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-inbox" %>
    </li>
    <% else %>
-   <li>
-   <span class="glyphicon glyphicon-home" aria-hidden="true">
-   <%= link_to "Home", root_path %>
-   </span>
+   <li> 
+   <%= link_to " Home", root_path,class:"glyphicon glyphicon-home" %>
    </li>
+
    <li>
-   <span class="glyphicon glyphicon-search" aria-hidden="true">
-   <%= link_to "About", home_about_path %>
-   </span>
+   <%= link_to " About", home_about_path ,class:"glyphicon glyphicon-search"  %>
    </li>
+
    <li>
-   <span class="glyphicon glyphicon-edit" aria-hidden="true">
-   <%= link_to "sign up", new_user_registration_path %>
-   </span>
+   <%= link_to " sign up", new_user_registration_path,class:"glyphicon glyphicon-edit" %>
    </li>
+
    <li>
-   <span class="glyphicon glyphicon-share" aria-hidden="true">
-   <%= link_to "Login", user_session_path %>
-   </span>
+   <%= link_to " Login", user_session_path,class:"glyphicon glyphicon-share"  %>
    </li>
+
    <% end %>
    </ul>
    </div>
@@ -74,6 +59,11 @@
    </header>
    
    
+   <% if flash[:notice] %>
+   <div class="flash">
+     <%= flash[:notice] %>
+   </div>
+ <% end %>
    <% if flash[:alert] %>
    <div class="flash">
      <%= flash[:alert] %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+  before_action :authenticate_user!, only: [:edit,:index,:show]
   
   
   def show
@@ -10,6 +10,10 @@ class UsersController < ApplicationController
 
     def edit
       @user = User.find(params[:id])
+      if current_user != @user
+        redirect_to user_path(current_user.id)
+  
+      end
   end
     def index
       @users = User.all
