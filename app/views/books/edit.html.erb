@@ -3,7 +3,7 @@
 <% end %>
 
 
-
+<div class="user-edit">
 
 <h1>Editing Book</h1>
 <%= form_for(@book, url:"/books/#{@book.id}") do |f| %>
@@ -19,8 +19,10 @@
     <%= f.text_field :title %>
     <h4>body</h4>
     <%= f.text_area :body %>
-    <%= f.submit 'Update Book' %>    
+    <%= f.submit 'Update Book', class: "btn btn-default" %>    
 <% end %>
 
 <%= link_to "Show", book_path(@book.id) %>
 <%= link_to "Back", books_path %>
+
+</div>
